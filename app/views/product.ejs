@@ -8,6 +8,11 @@
           <div class="brand">
             <p class="brand-content"><%= product.brand.name %></p>
           </div>
+          <ul class="categories">
+            <% for (const category of product.categories) { %>
+              <li class="categories-item"><%= category.title %></li>
+            <% } %>
+          </ul>
           <footer class="content-action">
             <a class="content-link" href="/">Retour à l'accueil</a>
           </footer>

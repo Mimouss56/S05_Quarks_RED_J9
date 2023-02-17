@@ -6,7 +6,8 @@ const sequelize = require('./app/database');
 // on définit déjà les modèles, sans ça impossible pour sequelize de les connaitre
 const {
   Product,
-  Brand
+  Brand,
+  Category
 } = require('./app/models');
 
 const db = {
@@ -34,15 +35,31 @@ const db = {
         title: 'BluRay',
         description: 'Super qualité !',
       });
+      const bluDisk = await Product.create({
+        title: 'Blue Disk',
+        description: 'Excellente qualité !',
+      });
       const universal = await Brand.create({
         name: 'Universal',
       });
       const warner = await Brand.create({
         name: 'Warner',
       });
+      const video = await Category.create({
+        title: 'Vidéo'
+      })
+      const audio = await Category.create({
+        title: 'Audio'
+      })
       cd.setBrand(universal);
       k7.setBrand(universal);
       bluRay.setBrand(warner);
+      bluDisk.setBrand(universal)
+
+      cd.addCategories([audio, video]);
+      k7.addCategory(video);
+      bluRay.addCategory(video);
+      bluDisk.addCategories([video, audio]);
     } catch (error) {
       console.log(error);
     }

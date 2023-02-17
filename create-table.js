@@ -4,7 +4,10 @@ require('dotenv').config();
 // un require va executer le code du module ciblé
 const sequelize = require('./app/database');
 // on définit déjà les modèles, sans ça impossible pour sequelize de les connaitre
-const { Product, Brand } = require('./app/models');
+const {
+  Product,
+  Brand
+} = require('./app/models');
 
 const db = {
   create: async () => {
@@ -13,28 +16,34 @@ const db = {
       await sequelize.sync();
       // seulement après avoir crée les tables, je peux mettre des choses dedans
       db.seeding();
-    }
-    catch (error) {
+    } catch (error) {
       console.log(error);
     }
   },
   seeding: async () => {
     try {
-      const cd = await Product.create({ 
+      const cd = await Product.create({
         title: 'CD',
         description: 'Le morceau de l\'été',
       });
-      const k7 = await Product.create({ 
+      const k7 = await Product.create({
         title: 'Cassette',
         description: 'Nostalgie',
       });
-      const universal = await Brand.create({ 
-        name: 'Univerval',
+      const bluRay = await Product.create({
+        title: 'BluRay',
+        description: 'Super qualité !',
+      });
+      const universal = await Brand.create({
+        name: 'Universal',
+      });
+      const warner = await Brand.create({
+        name: 'Warner',
       });
       cd.setBrand(universal);
-      k7.setBrand(universal);     
-    }
-    catch (error) {
+      k7.setBrand(universal);
+      bluRay.setBrand(warner);
+    } catch (error) {
       console.log(error);
     }
   },

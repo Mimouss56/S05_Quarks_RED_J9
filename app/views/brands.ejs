@@ -1,0 +1,18 @@
+<%- include("partials/header") %>
+
+<main class="page">
+  <section class="content">
+    <h1 class="content-title">Les marques</h1>
+    <p class="content-desc">Allez voir leurs produits, ça vaut le coup</p>
+    <ul class="content-list">
+      <% for(const brand of brands) { %>
+        <li class="content-item"><a href="/brand/<%= brand.name %>" class="content-link"><%= brand.name %></a></li>
+      <% } %>
+    </ul>
+    <footer class="content-action">
+      <a class="content-link" href="/">Retour à l'accueil</a>
+    </footer>
+  </section>
+</main>
+
+<%- include("partials/footer") %>

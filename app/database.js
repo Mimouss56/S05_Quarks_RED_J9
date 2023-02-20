@@ -11,6 +11,6 @@ const sequelize = new Sequelize(process.env.PG_URL, {
 
 sequelize.authenticate().then(() => {
   console.log('✅ CONNECTE A LA DB');
-})
+}).catch((err) => console.log("NON CONNECTE", err))
 
 module.exports = sequelize;

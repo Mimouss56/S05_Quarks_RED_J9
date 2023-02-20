@@ -112,3 +112,24 @@ body {
   background-color: var(--color);
   color: white;
 }
+
+#signup-form {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: space-evenly;
+}
+
+#signup-form input {
+  font-size: 1.2rem;
+}
+
+#signup-form button {
+  background-color:var(--color) ;
+  color: #fff;
+}
+
+.form-message {
+  padding: 10px;
+  background-color: #777;
+}

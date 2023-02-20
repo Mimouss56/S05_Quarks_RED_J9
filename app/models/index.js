@@ -1,6 +1,7 @@
 const Product = require('./product');
 const Brand = require('./brand');
 const Category = require('./category');
+const User = require('./user');
 
 Product.belongsTo(Brand, {
   as: 'brand',
@@ -27,5 +28,6 @@ Product.belongsToMany(Category, {
 module.exports = {
   Product,
   Brand,
-  Category
+  Category,
+  User
 }

@@ -7,7 +7,7 @@ const sequelize = require('./app/database');
 const {
   Product,
   Brand,
-  Category
+  Category, User
 } = require('./app/models');
 
 const db = {

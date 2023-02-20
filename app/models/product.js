@@ -12,13 +12,6 @@ Product.init({
   description: {
     type: DataTypes.TEXT
   },
-  brand_id: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: Brand,
-      key: 'id',
-    }
-  },
 }, {
   sequelize,
   tableName: 'product',
